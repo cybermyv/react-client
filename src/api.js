@@ -4,13 +4,19 @@ const instance = axios.create({
   baseURL: '/api',
 })
 
-export const userAuth = (email, password) => {
+export const userAuth = (username, password) => {
   instance
-    .post('/signin', {email,password})
-    .then(data => {
-      console.log(data)
-    })
+    .post('/signin', { username, password })
+    .then(({ data }) => data)
     .catch(error => {
       console.log(error)
+    })
+}
+
+export const mainForm = (auth = {}) => {
+  instance
+    .get('/main', { header: auth })
+    .then(({ data }) => {
+      data.main
     })
 }
