@@ -7,7 +7,9 @@ const instance = axios.create({
 export const userAuth = (username, password) => {
   instance
     .post('/signin', { username, password })
-    .then(({ data }) => data)
+    .then(({ data }) => {
+    //  console.log('userAuth=>', data);
+    return data})
     .catch(error => {
       console.log(error)
     })

@@ -1,24 +1,23 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-//import { Provider } from 'react-redux'
-//import { ConnectedRouter } from 'react-router-redux'
+import { Provider } from 'react-redux'
+import { ConnectedRouter } from 'react-router-redux'
 
-//import configureStore, { history } from './config/configureStore'
+import configureStore, { history } from './config/configureStore'
 
-import App from './containers/App'
+import App from './containers/App';
 
 import './style.css'
 
-//const initialState = {}
-//const store = configureStore(initialState)
+const initialState = {}
+const store = configureStore(initialState)
 
-// ReactDOM.render(
-//   //<Provider store={store}>
-//     //<ConnectedRouter history={history}>
-//       <App />,
-//     //</ConnectedRouter>
-//   //</Provider>,
-//   document.getElementById('root')
-// )
-ReactDOM.render(<App />, document.getElementById('root'))
+ReactDOM.render(
+  <Provider store={store}>
+    <ConnectedRouter history={history}>
+      <App />
+    </ConnectedRouter>
+  </Provider>,
+  document.getElementById('root')
+)
