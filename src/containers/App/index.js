@@ -6,7 +6,7 @@ import { noop } from 'lodash'
 import AuthForm from '../../components/AuthForm'
 import Main from '../../components/Main'
 import Header from '../../components/Header';
-import { userAuth } from '../../api'
+//import { userAuth } from '../../api'
 
 import './style.css'
 
@@ -17,13 +17,15 @@ import './style.css'
       <div className="AppContainer">
         
           <Switch>
-            <Route path="/signin">
+            <Route exact path="/signin">
               <AuthForm />
             </Route>
 
             <Route path="/main">
-             <Header />  
-            
+            <div className="AppContent">
+               <Header /> 
+               <Main />
+            </div> 
             </Route>
 
             <Redirect to="/signin" />

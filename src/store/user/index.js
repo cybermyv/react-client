@@ -11,7 +11,7 @@ export const userSetAction = (id, login) =>({
 // reducer
 const initialState = {id:'', login:''};
 
-export const userReducer = (state= initialState, action=[])=>{
+export const userReducer = (state= initialState, action={})=>{
     const {type, payload} = action;
 
     switch (type){

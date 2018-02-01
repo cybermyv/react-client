@@ -44,11 +44,17 @@ class AuthForm extends React.Component {
     axios
       .post('/api/signin', { username, password })
       .then(({ data }) => {
-        const { ID, token, login } = data
-       // console.log(ID, token, login)
-        this.props.setAuth(ID, token);
-        this.props.setUser (ID, login);
-        this.props.gotoMain();
+
+        const { ID, token, login } = data;
+
+
+
+               this.props.setAuth(ID, token);
+               this.props.setUser (ID, login);
+
+               console.log(login);
+               this.props.gotoMain();
+      return data;
       })
       .catch(error => {
         console.log(error)

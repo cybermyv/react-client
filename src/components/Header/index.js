@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 
 import { authLogoutAction } from '../../store/auth'
 import { userSelector } from '../../store/user'
+
 const mapStateToProps = userSelector
 const mapDispatchToProps = { logout: authLogoutAction }
 const enhance = connect(mapStateToProps, mapDispatchToProps)
@@ -30,7 +31,8 @@ class Header extends React.Component {
           </div>
           <div className="HeaderBlock HeaderBlockRight">
             <div className="HeaderItem">
-              { this.props.user.login }
+              {this.props.user.login }
+              
             </div>
             <div className="HeaderItem HeaderLink" onClick={this.logout}>
               Выход
