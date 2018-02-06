@@ -1,33 +1,22 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { push } from 'react-router-redux'
-import axios from 'axios'
+
+import {asyncActionAuthLogin} from '../../store/auth';
+
 
 import { Button } from 'react-bootstrap'
-import { userAuth } from '../../api'
 
+const enhance = connect(
 
-import { authLoginAction, authSelector } from '../../store/auth'
-import { userSetAction } from '../../store/user'
-
-const mapStateToProps = authSelector
-
-const mapDispatchToProps = {
-  setAuth: authLoginAction,
-  setUser: userSetAction,
-  gotoMain: () => push('/main'),
-}
-
-const enhance = connect(mapStateToProps, mapDispatchToProps)
+  ()=>({}),
+  {login: asyncActionAuthLogin}
+);
 
 class AuthForm extends React.Component {
   static propTypes = {
-    setAuth: PropTypes.func,
-    setUser: PropTypes.func,
-    gotoMain: PropTypes.func,
-    auth: PropTypes.object,
+    login : PropTypes.func,
+    gotoMain: PropTypes.func
   }
 
   state = {
@@ -38,31 +27,17 @@ class AuthForm extends React.Component {
   setUsername = event => this.setState({ username: event.target.value })
   setPassword = event => this.setState({ password: event.target.value })
 
-  auth = () => {
-    const { username, password } = this.state
 
-    axios
-      .post('/api/signin', { username, password })
-      .then(({ data }) => {
+auth = async () => {
+  console.log('async');
 
-        const { ID, token, login } = data;
+  const {username, password} = this.state;
 
-
-
-               this.props.setAuth(ID, token);
-               this.props.setUser (ID, login);
-
-               console.log(login);
-               this.props.gotoMain();
-      return data;
-      })
-      .catch(error => {
-        console.log(error)
-      })
-  }
+  this.props.login(username, password);
+}
 
   render() {
-    // const { username, password } = this.state
+
     return (
       <form className="form-signin">
         <h2 className="form-signin-heading">Логинка</h2>
