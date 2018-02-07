@@ -14,10 +14,12 @@ export const  userAuth = async (username, password) => {
     return res.data
 }
 
-export const mainForm = (auth = {}) => {
+export const getAllDbf = () => {
   instance
-    .get('/main', { header: auth })
+    .get('/main')
     .then(({ data }) => {
+      
+      console.log('DBF', data);
       data
     })
 }

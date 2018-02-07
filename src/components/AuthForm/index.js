@@ -20,8 +20,8 @@ class AuthForm extends React.Component {
   }
 
   state = {
-    username: '',
-    password: '',
+    username: 'admin',
+    password: 'admin',
   }
 
   setUsername = event => this.setState({ username: event.target.value })

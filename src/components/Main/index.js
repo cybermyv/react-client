@@ -1,25 +1,31 @@
-import PropTypes from 'prop-types'
 import React from 'react'
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { authSelector } from '../../store/auth'
-
-const mapStateToProps = (state) =>{
-    auth : state.auth
-  }
-
-  const enhance = connect(mapStateToProps);
+import { getAllDbf } from '../../api';
 
 
-export default class Main extends React.Component{
+import {authSelector, authLogoutAction } from '../../store/auth'
+import { userSelector } from '../../store/user'
+
+
+const mapStateToProps = userSelector;
+const mapDispatchToProps = { logout: authLogoutAction }
+const enhance = connect(mapStateToProps, mapDispatchToProps)
+
+
+ class Main extends React.Component{
     static propTypes = {
-        auth: PropTypes.object,
-        setAuth: PropTypes.func,
+        user: PropTypes.object,
+        logout: PropTypes.func,
       }
-
-      constructor(props) {
-        super(props)
     
-      }
+      //logout = () => this.props.logout()
+
+componentDidMount(){
+const dbf = getAllDbf();
+    
+
+}
       
       render(){
           
@@ -27,9 +33,11 @@ export default class Main extends React.Component{
               <div>
               <h1>
               Основное окно
-              
+              {this.props.user.login }
                </h1>
               </div>
           )
       }
 }
+
+export default enhance(Main);

@@ -22,17 +22,12 @@ export const asyncActionAuthLogin = (username, password) => async (dispatch, get
 
     const { ID, token, login } = await api.userAuth(username, password);
 
-
-    //const { ID, token, login } = await res;
-
-    //const result = await res;
-
-    //console.log(result);
-
      dispatch(authLoginAction(ID, token))
      dispatch(userSetAction(ID, login))
      dispatch(push('/main'))
+     
   } catch (e) {
+
     console.log(e);
   }
 }
