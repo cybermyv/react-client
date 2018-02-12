@@ -1,6 +1,6 @@
 import { push } from 'react-router-redux'
 import { userSetAction } from '../user'
-
+import { get } from 'lodash';
 
 // CONSTANTS
 const AUTH_LOGIN = 'AUTH_LOGIN'
@@ -16,19 +16,16 @@ export const authLogoutAction = () => ({ type: AUTH_LOGOUT })
 
 // ASYNC ACTION
 
-export const asyncActionAuthLogin = (username, password) => async (dispatch, getState,  api,) => {
+export const asyncActionAuthLogin = (username, password) => async (dispatch, getState, api, ) => {
   try {
     console.log('asyncActionAuthLogin')
 
     const { ID, token, login } = await api.userAuth(username, password);
-
-     dispatch(authLoginAction(ID, token))
-     dispatch(userSetAction(ID, login))
-     dispatch(push('/main'))
-     
+    dispatch(authLoginAction(ID, token))
+    dispatch(userSetAction(ID, login))
+    dispatch(push('/main'))
   } catch (e) {
-
-    console.log(e);
+    if (get(e, ['status']) === 401) dispatch(push('/signin'))
   }
 }
 
