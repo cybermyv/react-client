@@ -23,7 +23,6 @@ import './style.css'
 
             <Route path="/main">
             <div className="AppContent">
-             
                <Main />
             </div> 
             </Route>

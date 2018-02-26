@@ -62129,6 +62129,8 @@ var _auth = __webpack_require__(119);
 
 var _reactBootstrap = __webpack_require__(603);
 
+__webpack_require__(759);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
@@ -62200,11 +62202,6 @@ var AuthForm = function (_React$Component) {
           { className: 'form-signin-heading' },
           '\u041B\u043E\u0433\u0438\u043D\u043A\u0430'
         ),
-        _react2.default.createElement(
-          'label',
-          { htmlFor: 'inputEmail', className: 'sr-only' },
-          '\u0410\u0434\u0440\u0435\u0441 \u044D\u043B\u0435\u043A\u0442\u0440\u043E\u043D\u043D\u043E\u0439 \u043F\u043E\u0447\u0442\u044B'
-        ),
         _react2.default.createElement('input', {
           id: 'inputEmail',
           name: 'username',
@@ -62216,11 +62213,6 @@ var AuthForm = function (_React$Component) {
           value: this.state.username,
           onChange: this.setUsername
         }),
-        _react2.default.createElement(
-          'label',
-          { htmlFor: 'inputPassword', className: 'sr-only' },
-          'Password'
-        ),
         _react2.default.createElement('input', {
           type: 'password',
           id: 'inputPassword',
@@ -74419,7 +74411,7 @@ exports = module.exports = __webpack_require__(198)(undefined);
 
 
 // module
-exports.push([module.i, ".AppContainer {\r\n    /* position: relative; */\r\n    width: 100%;\r\n    height: 98vh;\r\n  }\r\n  \r\n  .AppContent {\r\n    /* position: absolute; */\r\n    top: 0;\r\n  \r\n    display: flex;\r\n    flex-direction: column;\r\n    justify-content: flex-start;\r\n    align-items: center;\r\n  \r\n    width: 100%;\r\n  }\r\n  ", ""]);
+exports.push([module.i, "body, html { \r\n  width: 100%;\r\n  height: 100%;\r\n}\r\n\r\n.AppContainer {\r\n  min-width: 100%;\r\n  min-height: 100%;\r\n  /* position: relative; */\r\n  \r\n  display: flex;\r\n   align-items: center; \r\n  \r\n\tjustify-content: center;\r\n\t\r\n}\r\n\r\n/*\r\n  .AppContent {\r\n    \r\n    top: 0;\r\n  \r\n    display: flex;\r\n    flex-direction: column;\r\n    justify-content: flex-start;\r\n    align-items: center;\r\n  \r\n    width: 100%;\r\n  }\r\n   */\r\n", ""]);
 
 // exports
 
@@ -74465,6 +74457,51 @@ exports = module.exports = __webpack_require__(198)(undefined);
 
 // module
 exports.push([module.i, "body {\r\n    margin: 0;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    flex-wrap: wrap;\r\n  }\r\n  ", ""]);
+
+// exports
+
+
+/***/ }),
+/* 759 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(760);
+if(typeof content === 'string') content = [[module.i, content, '']];
+// Prepare cssTransformation
+var transform;
+
+var options = {}
+options.transform = transform
+// add the styles to the DOM
+var update = __webpack_require__(199)(content, options);
+if(content.locals) module.exports = content.locals;
+// Hot Module Replacement
+if(false) {
+	// When the styles change, update the <style> tags
+	if(!content.locals) {
+		module.hot.accept("!!../../../node_modules/css-loader/index.js!./style.css", function() {
+			var newContent = require("!!../../../node_modules/css-loader/index.js!./style.css");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+	}
+	// When the module is disposed, remove the <style> tags
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 760 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(198)(undefined);
+// imports
+
+
+// module
+exports.push([module.i, ".form-signin{\r\n    \r\n    border: 1px solid black;\r\n    height: 200px;\r\n    width: 200px;\r\n    \r\n\r\n}", ""]);
 
 // exports
 
