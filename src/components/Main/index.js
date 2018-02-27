@@ -10,57 +10,61 @@ import { authSelector, authLogoutAction, authLoginAction } from '../../store/aut
 
 import { userSelector } from '../../store/user';
 
+import './style.css'
 
-
-
-const mapStateToProps = state => ({
-    auth: state.auth,
-    recs: state.recs
+const mapStateToProps = (state) => ({
+	auth: state.auth,
+	recs: state.recs
 });
 
 //userSelector;
 //const mapDispatchToProps = { logout: authLogoutAction }
 
 const mapDispatchToProps = {
-    setAuth: authLoginAction,
-    getListRecords: getListRecordsAction
-}
+	setAuth: authLoginAction,
+	getListRecords: getListRecordsAction
+};
 
-const enhance = connect(mapStateToProps, mapDispatchToProps)
-
+const enhance = connect(mapStateToProps, mapDispatchToProps);
 
 class Main extends React.Component {
-    static propTypes = {
-        user: PropTypes.object,
-        logout: PropTypes.func,
-    }
+	static propTypes = {
+		user: PropTypes.object,
+		logout: PropTypes.func
+	};
 
-    //logout = () => this.props.logout()
+	//logout = () => this.props.logout()
 
-    async componentDidMount() {
-        //const dbf = getAllDbf();
+	async componentDidMount() {
+		//const dbf = getAllDbf();
 
-        try {
-            const recs = await getAllDbf(); // потом добавить параметр авторизации
-            this.props.getListRecords(recs);
-        } catch (e) {
-            console.log(e);
-        }
-    }
+		try {
+			const recs = await getAllDbf(); // потом добавить параметр авторизации
+			this.props.getListRecords(recs);
+		} catch (e) {
+			console.log(e);
+		}
+	}
 
-    render() {
-
-        return (
-            <div>
-                <h1> Основное окно </h1>
-                <ul>
-                
-                </ul>
-
-            </div>
-        )
-    }
+	render() {
+		return (
+			<div className="main-container">
+				<div className="main-heading">
+					<h1> Основное окно </h1>
+				</div>
+				<div className="main-menu">
+					<p>меню</p>
+				</div>
+				<div className="main-content">
+					<p>контент</p>
+				</div>
+				<div className="main-footer">
+					<p>футтер</p>
+				</div>
+			</div>
+		);
+	}
 }
 
 export default enhance(Main);
-// {this.props.user.login} 
+// {this.props.user.login}

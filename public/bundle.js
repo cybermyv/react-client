@@ -62195,42 +62195,46 @@ var AuthForm = function (_React$Component) {
     value: function render() {
 
       return _react2.default.createElement(
-        'form',
-        { className: 'form-signin' },
+        'div',
+        { className: 'signin-container' },
         _react2.default.createElement(
-          'h2',
-          { className: 'form-signin-heading' },
-          '\u041B\u043E\u0433\u0438\u043D\u043A\u0430'
-        ),
-        _react2.default.createElement('input', {
-          id: 'inputEmail',
-          name: 'username',
-          className: 'form-control',
-          type: 'text',
-          placeholder: '\u0418\u043C\u044F \u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044F',
-          required: true,
-          autoFocus: true,
-          value: this.state.username,
-          onChange: this.setUsername
-        }),
-        _react2.default.createElement('input', {
-          type: 'password',
-          id: 'inputPassword',
-          name: 'password',
-          className: 'form-control',
-          placeholder: '\u041F\u0430\u0440\u043E\u043B\u044C',
-          value: this.state.password,
-          onChange: this.setPassword
-        }),
-        _react2.default.createElement(
-          'button',
-          {
-            className: 'btn btn-lg btn-primary btn-block',
-            type: 'button',
-            onClick: this.auth
-          },
-          ' ',
-          '\u0412\u043E\u0439\u0442\u0438'
+          'form',
+          { className: 'form-signin' },
+          _react2.default.createElement(
+            'h2',
+            { className: 'form-signin-heading' },
+            '\u043B\u043E\u0433\u0438\u043D\u043A\u0430'
+          ),
+          _react2.default.createElement('input', {
+            id: 'inputEmail',
+            name: 'username',
+            className: 'form-control',
+            type: 'text',
+            placeholder: '\u0418\u043C\u044F \u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044F',
+            required: true,
+            autoFocus: true,
+            value: this.state.username,
+            onChange: this.setUsername
+          }),
+          _react2.default.createElement('input', {
+            type: 'password',
+            id: 'inputPassword',
+            name: 'password',
+            className: 'form-control',
+            placeholder: '\u041F\u0430\u0440\u043E\u043B\u044C',
+            value: this.state.password,
+            onChange: this.setPassword
+          }),
+          _react2.default.createElement(
+            'button',
+            {
+              className: 'btn btn-lg btn-primary btn-block',
+              type: 'button',
+              onClick: this.auth
+            },
+            ' ',
+            '\u0412\u043E\u0439\u0442\u0438'
+          )
         )
       );
     }
@@ -74026,7 +74030,7 @@ exports = module.exports = __webpack_require__(132)(undefined);
 
 
 // module
-exports.push([module.i, ".form-signin{\r\n    \r\n    border: 1px solid black;\r\n    height: 200px;\r\n    width: 200px;\r\n    \r\n\r\n}", ""]);
+exports.push([module.i, ".signin-container {\r\n\theight: 300px;\r\n\twidth: 300px;\r\n\tborder: 1px solid #ccc;\r\n\tdisplay: flex;\r\n\talign-items: center;\r\n\tjustify-content: center;\r\n    border-radius: 10px;\r\n    box-shadow: inset 0 0 8px rgba(102,175,233,.6);\r\n}\r\n\r\n.form-signin {\r\n\theight: 250px;\r\n\twidth: 250px;\r\n}\r\n\r\n.form-signin input {\r\n\tmargin: 0 0 20px 0;\r\n}\r\n\r\n.form-signin button {\r\n\tmargin-top: 40px;\r\n}\r\n.form-signin-heading {\r\n    font-family:Roboto-Medium;\r\n\ttext-align: center;\r\n\tmargin: 0 0 40px 0;\r\n}\r\n", ""]);
 
 // exports
 
@@ -74134,7 +74138,7 @@ module.exports = function (css) {
 
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+	value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -74157,6 +74161,8 @@ var _auth = __webpack_require__(119);
 
 var _user = __webpack_require__(120);
 
+__webpack_require__(762);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
@@ -74168,98 +74174,128 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var mapStateToProps = function mapStateToProps(state) {
-    return {
-        auth: state.auth,
-        recs: state.recs
-    };
+	return {
+		auth: state.auth,
+		recs: state.recs
+	};
 };
 
 //userSelector;
 //const mapDispatchToProps = { logout: authLogoutAction }
 
 var mapDispatchToProps = {
-    setAuth: _auth.authLoginAction,
-    getListRecords: _records.getListRecordsAction
+	setAuth: _auth.authLoginAction,
+	getListRecords: _records.getListRecordsAction
 };
 
 var enhance = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps);
 
 var Main = function (_React$Component) {
-    _inherits(Main, _React$Component);
+	_inherits(Main, _React$Component);
 
-    function Main() {
-        _classCallCheck(this, Main);
+	function Main() {
+		_classCallCheck(this, Main);
 
-        return _possibleConstructorReturn(this, (Main.__proto__ || Object.getPrototypeOf(Main)).apply(this, arguments));
-    }
+		return _possibleConstructorReturn(this, (Main.__proto__ || Object.getPrototypeOf(Main)).apply(this, arguments));
+	}
 
-    _createClass(Main, [{
-        key: 'componentDidMount',
+	_createClass(Main, [{
+		key: 'componentDidMount',
 
 
-        //logout = () => this.props.logout()
+		//logout = () => this.props.logout()
 
-        value: function () {
-            var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-                var recs;
-                return regeneratorRuntime.wrap(function _callee$(_context) {
-                    while (1) {
-                        switch (_context.prev = _context.next) {
-                            case 0:
-                                _context.prev = 0;
-                                _context.next = 3;
-                                return (0, _api.getAllDbf)();
+		value: function () {
+			var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
+				var recs;
+				return regeneratorRuntime.wrap(function _callee$(_context) {
+					while (1) {
+						switch (_context.prev = _context.next) {
+							case 0:
+								_context.prev = 0;
+								_context.next = 3;
+								return (0, _api.getAllDbf)();
 
-                            case 3:
-                                recs = _context.sent;
-                                // потом добавить параметр авторизации
-                                this.props.getListRecords(recs);
-                                _context.next = 10;
-                                break;
+							case 3:
+								recs = _context.sent;
+								// потом добавить параметр авторизации
+								this.props.getListRecords(recs);
+								_context.next = 10;
+								break;
 
-                            case 7:
-                                _context.prev = 7;
-                                _context.t0 = _context['catch'](0);
+							case 7:
+								_context.prev = 7;
+								_context.t0 = _context['catch'](0);
 
-                                console.log(_context.t0);
+								console.log(_context.t0);
 
-                            case 10:
-                            case 'end':
-                                return _context.stop();
-                        }
-                    }
-                }, _callee, this, [[0, 7]]);
-            }));
+							case 10:
+							case 'end':
+								return _context.stop();
+						}
+					}
+				}, _callee, this, [[0, 7]]);
+			}));
 
-            function componentDidMount() {
-                return _ref.apply(this, arguments);
-            }
+			function componentDidMount() {
+				return _ref.apply(this, arguments);
+			}
 
-            return componentDidMount;
-        }()
-    }, {
-        key: 'render',
-        value: function render() {
+			return componentDidMount;
+		}()
+	}, {
+		key: 'render',
+		value: function render() {
+			return _react2.default.createElement(
+				'div',
+				{ className: 'main-container' },
+				_react2.default.createElement(
+					'div',
+					{ className: 'main-heading' },
+					_react2.default.createElement(
+						'h1',
+						null,
+						' \u041E\u0441\u043D\u043E\u0432\u043D\u043E\u0435 \u043E\u043A\u043D\u043E '
+					)
+				),
+				_react2.default.createElement(
+					'div',
+					{ className: 'main-menu' },
+					_react2.default.createElement(
+						'p',
+						null,
+						'\u043C\u0435\u043D\u044E'
+					)
+				),
+				_react2.default.createElement(
+					'div',
+					{ className: 'main-content' },
+					_react2.default.createElement(
+						'p',
+						null,
+						'\u043A\u043E\u043D\u0442\u0435\u043D\u0442'
+					)
+				),
+				_react2.default.createElement(
+					'div',
+					{ className: 'main-footer' },
+					_react2.default.createElement(
+						'p',
+						null,
+						'\u0444\u0443\u0442\u0442\u0435\u0440'
+					)
+				)
+			);
+		}
+	}]);
 
-            return _react2.default.createElement(
-                'div',
-                null,
-                _react2.default.createElement(
-                    'h1',
-                    null,
-                    ' \u041E\u0441\u043D\u043E\u0432\u043D\u043E\u0435 \u043E\u043A\u043D\u043E '
-                ),
-                _react2.default.createElement('ul', null)
-            );
-        }
-    }]);
-
-    return Main;
+	return Main;
 }(_react2.default.Component);
 
 Main.propTypes = {
-    user: _propTypes2.default.object,
-    logout: _propTypes2.default.func };
+	user: _propTypes2.default.object,
+	logout: _propTypes2.default.func
+};
 exports.default = enhance(Main);
 // {this.props.user.login}
 
@@ -74456,7 +74492,7 @@ exports = module.exports = __webpack_require__(132)(undefined);
 
 
 // module
-exports.push([module.i, "body,\r\nhtml {\r\n    /* width: 100vw;\r\n    height: 100vh; */\r\n}\r\n\r\n.AppContainer {\r\n    width: 100vw;\r\n    height: 100vh;\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n}\r\n\r\n.AppContent {\r\n  height: calc(100% - 20px);\r\n  width: calc(100% - 20px);\r\n}", ""]);
+exports.push([module.i, "@font-face {\r\n\tfont-family: Roboto-Medium;\r\n\tsrc: url(" + __webpack_require__(761) + ");\r\n}\r\n\r\n.AppContainer {\r\n\twidth: 100vw;\r\n\theight: 100vh;\r\n\tdisplay: flex;\r\n\talign-items: center;\r\n\tjustify-content: center;\r\n}\r\n\r\n.AppContent {\r\n\theight: calc(100% - 20px);\r\n\twidth: calc(100% - 20px);\r\n\tborder: 1px solid #ccc;\r\n\t/* border-radius: 10px;\r\n\tbox-shadow: inset 0 0 8px rgba(102, 175, 233, .6); */\r\n}\r\n", ""]);
 
 // exports
 
@@ -74502,6 +74538,57 @@ exports = module.exports = __webpack_require__(132)(undefined);
 
 // module
 exports.push([module.i, "body {\r\n    margin: 0;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    flex-wrap: wrap;\r\n  }\r\n  ", ""]);
+
+// exports
+
+
+/***/ }),
+/* 761 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "9dda4e591e6d4bce5d4a8e2a195dca07.ttf";
+
+/***/ }),
+/* 762 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(763);
+if(typeof content === 'string') content = [[module.i, content, '']];
+// Prepare cssTransformation
+var transform;
+
+var options = {}
+options.transform = transform
+// add the styles to the DOM
+var update = __webpack_require__(133)(content, options);
+if(content.locals) module.exports = content.locals;
+// Hot Module Replacement
+if(false) {
+	// When the styles change, update the <style> tags
+	if(!content.locals) {
+		module.hot.accept("!!../../../node_modules/css-loader/index.js!./style.css", function() {
+			var newContent = require("!!../../../node_modules/css-loader/index.js!./style.css");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+	}
+	// When the module is disposed, remove the <style> tags
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 763 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(132)(undefined);
+// imports
+
+
+// module
+exports.push([module.i, ".main-container{\r\n    display: flex;\r\n    \r\n    flex-flow: column wrap;\r\n    align-items:stretch;\r\n\t\r\n}\r\n\r\n.main-heading{\r\n    border: 1px solid #ccc; \r\n    \r\n    /* height: 40px; */\r\n    \r\n}\r\n\r\n.main-menu{\r\n    border: 1px solid #ccc; \r\n    height: 20px;\r\n    \r\n}\r\n\r\n.main-content{\r\n    height: calc(100vh - 100px);\r\n    flex-grow: 1;\r\n}\r\n\r\n.main-footer{\r\n    border: 1px solid #ccc; \r\n    height: 20px;\r\n    margin-top: auto;\r\n    \r\n}", ""]);
 
 // exports
 

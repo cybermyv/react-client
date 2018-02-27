@@ -1,0 +1,32 @@
+.main-container{
+    display: flex;
+    
+    flex-flow: column wrap;
+    align-items:stretch;
+	
+}
+
+.main-heading{
+    border: 1px solid #ccc; 
+    
+    /* height: 40px; */
+    
+}
+
+.main-menu{
+    border: 1px solid #ccc; 
+    height: 20px;
+    
+}
+
+.main-content{
+    height: calc(100vh - 100px);
+    flex-grow: 1;
+}
+
+.main-footer{
+    border: 1px solid #ccc; 
+    height: 20px;
+    margin-top: auto;
+    
+}

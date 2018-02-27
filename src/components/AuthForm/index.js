@@ -41,9 +41,10 @@ class AuthForm extends React.Component {
   render() {
 
     return (
+      <div className="signin-container">
       
         <form className="form-signin">
-          <h2 className="form-signin-heading">Логинка</h2>
+        <h2 className="form-signin-heading">логинка</h2>    
           {/* <label htmlFor="inputEmail" className="sr-only">
           Адрес электронной почты
         </label> */}
@@ -79,6 +80,7 @@ class AuthForm extends React.Component {
             Войти
         </button>
         </form>
+        </div>
       
     )
   }
